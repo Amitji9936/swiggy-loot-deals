@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Swiggy Instamart Loot Deals</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 10px;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 15px;
     }
     h1 {
-      color: black;
+      text-align: center;
+      color: #ff5722;
     }
     .search-box {
-      margin-bottom: 20px;
+      margin: 20px auto;
+      text-align: center;
     }
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
+    .search-box input {
+      padding: 10px;
       font-size: 16px;
+      width: 90%;
+      max-width: 400px;
     }
     .deal {
-      background: white;
+      background: #fff;
+      border-radius: 10px;
       padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .buy-btn {
-      background-color: orange;
+    .deal h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+    .discount {
+      color: red;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #ff5722;
       color: white;
       padding: 10px 20px;
-      border: none;
-      margin-top: 10px;
-      cursor: pointer;
-      border-radius: 4px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+
   <h1>🔥 Swiggy Instamart Loot Deals</h1>
 
   <div class="search-box">
@@ -47,32 +66,37 @@
   </div>
 
   <div id="deals">
+
     <div class="deal">
-      <strong>Fortune Sunlite Oil 1L</strong>
-      <p>₹100 <span style="color:red">(50% OFF)</span></p>
+      <h2>Fortune Sunlite Oil 1L</h2>
+      <p><span class="price">₹100</span> <span class="discount">(50% OFF)</span></p>
       <p>🛒 Pincode: 273004</p>
-      <button class="buy-btn">Buy Now</button>
+      <a href="https://www.swiggy.com/stores/instamart/item/QH63F3YH1O?share=true" target="_blank" class="buy-button">Buy Now</a>
     </div>
+
     <div class="deal">
-      <strong>Madhur Sugar 1kg</strong>
-      <p>₹42 <span style="color:red">(45% OFF)</span></p>
+      <h2>Madhur Sugar 1kg</h2>
+      <p><span class="price">₹42</span> <span class="discount">(45% OFF)</span></p>
       <p>🛒 Pincode: 273004</p>
-      <button class="buy-btn">Buy Now</button>
+      <a href="https://www.swiggy.com/stores/instamart/item/ZXC34213?share=true" target="_blank" class="buy-button">Buy Now</a>
     </div>
-    <!-- Add more deals here -->
+
+    <!-- Add more deals below in same format -->
+
   </div>
 
   <script>
-    const searchInput = document.getElementById('searchInput');
-    const deals = document.querySelectorAll('.deal');
+    const searchInput = document.getElementById("searchInput");
+    const deals = document.querySelectorAll(".deal");
 
-    searchInput.addEventListener('keyup', () => {
+    searchInput.addEventListener("keyup", () => {
       const value = searchInput.value.toLowerCase();
       deals.forEach(deal => {
         const text = deal.textContent.toLowerCase();
-        deal.style.display = text.includes(value) ? 'block' : 'none';
+        deal.style.display = text.includes(value) ? "block" : "none";
       });
     });
   </script>
+
 </body>
 </html>
