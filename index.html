@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Swiggy Instamart Loot Deals</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 10px;
       background-color: #f4f4f4;
+      padding: 10px;
+    }
+    h1 {
+      color: black;
+    }
+    .search-box {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
     }
     .deal {
       background: white;
@@ -18,45 +28,51 @@
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .deal h2 {
-      font-size: 18px;
-      margin: 0 0 10px;
-    }
-    .price {
-      font-weight: bold;
-      color: green;
-    }
-    .discount {
-      color: red;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 12px;
+    .buy-btn {
       background-color: orange;
       color: white;
-      text-decoration: none;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
-
   <h1>🔥 Swiggy Instamart Loot Deals</h1>
 
-  <div class="deal">
-    <h2>Fortune Sunlite Oil 1L</h2>
-    <p><span class="price">₹100</span> <span class="discount">(50% OFF)</span></p>
-    <p>🛒 Pincode: 273004</p>
-    <a class="btn" href="https://www.swiggy.com/instamart" target="_blank">Buy Now</a>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search item...">
   </div>
 
-  <div class="deal">
-    <h2>Madhur Sugar 1kg</h2>
-    <p><span class="price">₹42</span> <span class="discount">(45% OFF)</span></p>
-    <p>🛒 Pincode: 273004</p>
-    <a class="btn" href="https://www.swiggy.com/instamart" target="_blank">Buy Now</a>
+  <div id="deals">
+    <div class="deal">
+      <strong>Fortune Sunlite Oil 1L</strong>
+      <p>₹100 <span style="color:red">(50% OFF)</span></p>
+      <p>🛒 Pincode: 273004</p>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+    <div class="deal">
+      <strong>Madhur Sugar 1kg</strong>
+      <p>₹42 <span style="color:red">(45% OFF)</span></p>
+      <p>🛒 Pincode: 273004</p>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+    <!-- Add more deals here -->
   </div>
 
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const deals = document.querySelectorAll('.deal');
+
+    searchInput.addEventListener('keyup', () => {
+      const value = searchInput.value.toLowerCase();
+      deals.forEach(deal => {
+        const text = deal.textContent.toLowerCase();
+        deal.style.display = text.includes(value) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
